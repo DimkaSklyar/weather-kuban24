@@ -1,0 +1,21 @@
+[{
+  "city": [{
+      "id": 0,
+      "name": "Сочи",
+      "temperature": 22,
+      "rainfall": "Осадки"
+    },
+    {
+      "id": 1,
+      "name": "Краснодар",
+      "temperature": 22,
+      "rainfall": "Осадки"
+    },
+    {
+      "id": 2,
+      "name": "Новороссийск",
+      "temperature": 22,
+      "rainfall": "Осадки"
+    }
+  ]
+}]
