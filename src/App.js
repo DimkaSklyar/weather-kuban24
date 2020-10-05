@@ -15,16 +15,10 @@ import logoPng from "./assets/img/logo.png";
 
 function App() {
   const getWeather = () => {
+    // fetch("https://us-central1-artful-affinity-291616.cloudfunctions.net/function-1").then(response => console.log(response))
     axios
       .get(
-        "https://api.weather.yandex.ru/v2/forecast?lat=55.75396&lon=37.620393&extra=true",
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            "X-Yandex-API-Key": "22d965d2-5ec9-418d-a7f8-1b8719700270",
-          },
-        }
+        "https://us-central1-artful-affinity-291616.cloudfunctions.net/function-1"
       )
       .then((result) => console.log(result));
   };
