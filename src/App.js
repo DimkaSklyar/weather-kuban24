@@ -14,13 +14,13 @@ import "./scss/index.scss";
 import logoPng from "./assets/img/logo.png";
 
 function App() {
+
   const getWeather = () => {
-    // fetch("https://us-central1-artful-affinity-291616.cloudfunctions.net/function-1").then(response => console.log(response))
     axios
       .get(
-        "https://us-central1-artful-affinity-291616.cloudfunctions.net/function-1"
+        "https://us-central1-artful-affinity-291616.cloudfunctions.net/myFirstApi"
       )
-      .then((result) => console.log(result));
+      .then(response => response.data).then(response => console.log(response));
   };
 
   const date = new Date();
