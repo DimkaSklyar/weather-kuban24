@@ -4,98 +4,130 @@
       {
         "id": 0,
         "name": "Сочи",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 43.585472,
+        "lon": 39.723089,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 1,
         "name": "Туапсе",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.094637,
+        "lon": 39.073095,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 2,
         "name": "Геленджик",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.561006,
+        "lon": 38.077115,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 3,
         "name": "Новороссийск",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.723771,
+        "lon": 37.768804,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 4,
         "name": "Анапа",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.894965,
+        "lon": 37.31617,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 5,
         "name": "Крымск",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.935394,
+        "lon": 37.987876,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 6,
         "name": "Славянск-на-Кубани",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 45.260325,
+        "lon": 38.12822,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 7,
         "name": "Приморско-Ахтарск",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 46.043502,
+        "lon": 38.177645,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 8,
         "name": "Ейск",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 46.711907,
+        "lon": 38.272633,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 9,
         "name": "Тихорецк",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 45.854956,
+        "lon": 40.126854,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 10,
         "name": "Кропоткин",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 45.434686,
+        "lon": 40.575994,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 11,
         "name": "Армавир",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.997655,
+        "lon": 41.129644,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 12,
         "name": "Лабинск",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.635387,
+        "lon": 40.724459,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 13,
         "name": "Белореченск",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.761141,
+        "lon": 39.87114,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 14,
         "name": "Горячий Ключ",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 44.634246,
+        "lon": 39.136426,
+        "rainfall": "Thunderstorm"
       },
       {
         "id": 15,
         "name": "Краснодар",
-        "temp": 22,
-        "rainfall": "Осадки"
+        "temp": "+22",
+        "lat": 45.03547,
+        "lon": 38.975313,
+        "rainfall": "Thunderstorm"
       }
     ]
   }

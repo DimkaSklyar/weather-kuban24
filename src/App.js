@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import download from "downloadjs";
 import classNames from "classnames";
@@ -7,6 +7,13 @@ import axios from "axios";
 import City from "./components/City";
 
 import DB from "./assets/db.json";
+
+import snowPng from "./assets/img/snow.png";
+import windPng from "./assets/img/wind.png";
+import cloudyPng from "./assets/img/cloudy.png";
+import stormPng from "./assets/img/storm.png";
+import rainPng from "./assets/img/rain.png";
+import sunPng from "./assets/img/sun.png";
 
 import "normalize.css";
 import "./scss/index.scss";
@@ -18,21 +25,47 @@ function App() {
   const [fixScreenshot, setFixScreenshot] = useState(false);
   const [listCity, setListCity] = useState(DB[0].city);
 
-  console.log(listCity);
+  const selectRainfall = (rainfall) => {
+    let selectInput = "";
+    switch (rainfall) {
+      case "Snow":
+        selectInput = snowPng;
+        break;
+      case "Squall":
+        selectInput = windPng;
+        break;
+      case "Clouds":
+        selectInput = cloudyPng;
+        break;
+      case "Thunderstorm":
+        selectInput = stormPng;
+        break;
+      case "Rain":
+        selectInput = rainPng;
+        break;
+      case "Clear":
+        selectInput = sunPng;
+        break;
+      default:
+        break;
+    }
+    return selectInput;
+  };
 
   const getWeather = () => {
-    console.log(listCity);
-    axios
-      .get(
-        "http://api.openweathermap.org/data/2.5/group?id=491422,480716,561667,518255,582182,540251,492094,505259,466885,483029,540761,580922,537281,577893,559317,542420&appid=9f4bf0cb0061518817d957d542cb826e&units=metric&lang=ru"
-      )
-      .then((response) => {
-        const newList = DB[0].city.map((city, index) => {
-          city.temp = response.data.list[index].main.temp;
-          return city;
-        });
-        setListCity(newList);
-      });
+    const getCitys = DB[0].city.map((city) => axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=current,minutely,hourly,alertslang=ru&units=metric&appid=a2cd1d02acda23219565accafe27132b`));
+    let newList = [];
+    Promise.all(getCitys).then(response => {
+      response.forEach(res => {
+        newList.push(res.data)
+      })
+    }).then(r =>
+      newList = DB[0].city.map((city, index) => {
+        city.id = (newList[index].lat + newList[index].lon).toFixed(2);
+        city.temp = newList[index].daily[1].temp.max.toFixed() > 0 ? `+${newList[index].daily[1].temp.max.toFixed()}` : `-${newList[index].daily[1].temp.max.toFixed()}`;
+        city.rainfall = newList[index].daily[1].weather[0].main;
+        return city;
+      })).then(r => setListCity(newList))
   };
 
   const date = new Date();
@@ -53,7 +86,6 @@ function App() {
   const [inputDate, setInputDate] = useState(formatDate(date));
 
   const onScreenshot = () => {
-    console.log(window.pageYOffset);
     setFixScreenshot(true);
     setTimeout(() => {
       html2canvas(document.querySelector("#capture"), {
@@ -94,11 +126,13 @@ function App() {
             <tbody>
               {listCity.map((city) => (
                 <City
-                  key={Math.random()}
+                  key={city.id}
                   temp={city.temp}
                   name={city.name}
                   isEdit={inputEdit}
+                  rainfall={city.rainfall}
                   fixScreen={fixScreenshot}
+                  selectImage={() => selectRainfall(city.rainfall)}
                 ></City>
               ))}
             </tbody>
@@ -127,7 +161,7 @@ function App() {
           {fixScreenshot ? "Сохранение..." : "Сохранить"}
         </button>
         <button className="btn" onClick={() => getWeather()}>
-          Получить данные с Яндекс.Погоды
+          Автоматическое заполение на {formatDate(date)}
         </button>
       </div>
     </div>

@@ -41,7 +41,7 @@ body {
   align-items: center;
 
   .container {
-    padding: 35px 30px;
+    padding: 20px 30px;
     width: 800px;
     height: 800px;
     margin: auto;
@@ -69,7 +69,6 @@ body {
       font-weight: bold;
       line-height: 1;
       padding: 0;
-
     }
 
     .table__weather {
@@ -218,7 +217,7 @@ body {
 
 .fix--screenshot {
   position: relative;
-  top: -4px;
+  top: -3px;
 }
 
 .btn {
@@ -249,7 +248,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  canvas{
+  canvas {
     position: relative;
     z-index: 9999;
   }

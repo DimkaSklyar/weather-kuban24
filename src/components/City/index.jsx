@@ -7,31 +7,30 @@ import rainPng from "../../assets/img/rain.png";
 import sunPng from "../../assets/img/sun.png";
 import classNames from "classnames";
 
-function City({ name, rainfall, temp, isEdit, fixScreen }) {
-  const [inputTemperature, setInputTemperature] = useState(temp.toFixed());
+function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
+  const [inputTemperature, setInputTemperature] = useState(temp);
   const [inputRainfall, setInputRainfall] = useState(rainfall);
-  const [selectImg, setSelectImg] = useState(snowPng);
+  const [selectImg, setSelectImg] = useState(selectImage);
 
   const selectRainfall = (rainfall) => {
     let selectInput = "";
-    console.log(rainfall);
     switch (rainfall) {
-      case "snow":
+      case "Snow":
         selectInput = snowPng;
         break;
-      case "wind":
+      case "Squall":
         selectInput = windPng;
         break;
-      case "cloudy":
+      case "Clouds":
         selectInput = cloudyPng;
         break;
-      case "storm":
+      case "Thunderstorm":
         selectInput = stormPng;
         break;
-      case "rain":
+      case "Rain":
         selectInput = rainPng;
         break;
-      case "sun":
+      case "Clear":
         selectInput = sunPng;
         break;
       default:
@@ -82,12 +81,12 @@ function City({ name, rainfall, temp, isEdit, fixScreen }) {
             selectRainfall(e.target.value);
           }}
         >
-          <option value="snow">Снег</option>
-          <option value="wind">Ветер</option>
-          <option value="cloudy">Облачно</option>
-          <option value="storm">Гроза</option>
-          <option value="rain">Дождь</option>
-          <option value="sun">Солнце</option>
+          <option value="Snow">Снег</option>
+          <option value="Squall">Ветер</option>
+          <option value="Clouds">Облачно</option>
+          <option value="Thunderstorm">Гроза</option>
+          <option value="Rain">Дождь</option>
+          <option value="Clear">Солнце</option>
         </select>
       </td>
     </tr>
