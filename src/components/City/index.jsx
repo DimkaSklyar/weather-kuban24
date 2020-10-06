@@ -7,8 +7,8 @@ import rainPng from "../../assets/img/rain.png";
 import sunPng from "../../assets/img/sun.png";
 import classNames from "classnames";
 
-function City({ name, rainfall, temperature, isEdit, fixScreen }) {
-  const [inputTemperature, setInputTemperature] = useState(temperature);
+function City({ name, rainfall, temp, isEdit, fixScreen }) {
+  const [inputTemperature, setInputTemperature] = useState(temp.toFixed());
   const [inputRainfall, setInputRainfall] = useState(rainfall);
   const [selectImg, setSelectImg] = useState(snowPng);
 
@@ -37,7 +37,6 @@ function City({ name, rainfall, temperature, isEdit, fixScreen }) {
       default:
         break;
     }
-
     setSelectImg(selectInput);
   };
 

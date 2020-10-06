@@ -4,97 +4,97 @@
       {
         "id": 0,
         "name": "Сочи",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 1,
         "name": "Туапсе",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 2,
         "name": "Геленджик",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 3,
         "name": "Новороссийск",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 4,
         "name": "Анапа",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 5,
         "name": "Крымск",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 6,
         "name": "Славянск-на-Кубани",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 7,
         "name": "Приморско-Ахтарск",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 8,
         "name": "Ейск",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 9,
         "name": "Тихорецк",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 10,
         "name": "Кропоткин",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 11,
         "name": "Армавир",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 12,
         "name": "Лабинск",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 13,
         "name": "Белореченск",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 14,
         "name": "Горячий Ключ",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       },
       {
         "id": 15,
         "name": "Краснодар",
-        "temperature": "+22",
+        "temp": 22,
         "rainfall": "Осадки"
       }
     ]

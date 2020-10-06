@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import html2canvas from "html2canvas";
 import download from "downloadjs";
 import classNames from "classnames";
@@ -14,13 +14,25 @@ import "./scss/index.scss";
 import logoPng from "./assets/img/logo.png";
 
 function App() {
+  const [inputEdit, setInputEdit] = useState(false);
+  const [fixScreenshot, setFixScreenshot] = useState(false);
+  const [listCity, setListCity] = useState(DB[0].city);
+
+  console.log(listCity);
 
   const getWeather = () => {
+    console.log(listCity);
     axios
       .get(
-        "https://us-central1-artful-affinity-291616.cloudfunctions.net/myFirstApi"
+        "http://api.openweathermap.org/data/2.5/group?id=491422,480716,561667,518255,582182,540251,492094,505259,466885,483029,540761,580922,537281,577893,559317,542420&appid=9f4bf0cb0061518817d957d542cb826e&units=metric&lang=ru"
       )
-      .then(response => response.data).then(response => console.log(response));
+      .then((response) => {
+        const newList = DB[0].city.map((city, index) => {
+          city.temp = response.data.list[index].main.temp;
+          return city;
+        });
+        setListCity(newList);
+      });
   };
 
   const date = new Date();
@@ -39,8 +51,6 @@ function App() {
   };
 
   const [inputDate, setInputDate] = useState(formatDate(date));
-  const [inputEdit, setInputEdit] = useState(false);
-  const [fixScreenshot, setFixScreenshot] = useState(false);
 
   const onScreenshot = () => {
     console.log(window.pageYOffset);
@@ -82,10 +92,11 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {DB[0].city.map((city) => (
+              {listCity.map((city) => (
                 <City
-                  key={city.id}
-                  {...city}
+                  key={Math.random()}
+                  temp={city.temp}
+                  name={city.name}
                   isEdit={inputEdit}
                   fixScreen={fixScreenshot}
                 ></City>
@@ -104,7 +115,12 @@ function App() {
         </div>
       </div>
       <div className="edit__wrapper">
-        <button className="btn" onClick={() => setInputEdit(!inputEdit)}>
+        <button
+          className="btn"
+          onClick={() => {
+            setInputEdit(!inputEdit);
+          }}
+        >
           {!inputEdit ? "Редактировать" : "Закончть редактирование"}
         </button>
         <button className="btn" onClick={onScreenshot} disabled={inputEdit}>
