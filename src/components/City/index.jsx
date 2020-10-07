@@ -45,18 +45,14 @@ function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
         <div className="input-wrap">
           <input
             disabled={!isEdit}
-            className={isEdit ? 'input--edit' : ''}
+            className={isEdit ? "input--edit" : ""}
             onChange={(e) => {
               setInputTemperature(e.target.value);
             }}
             value={inputTemperature}
             type="text"
           />
-          <span
-            className={fixScreen ? 'fix--screenshot' : ''}
-          >
-            °C
-          </span>
+          <span className={fixScreen ? "fix--screenshot" : ""}>°C</span>
         </div>
       </td>
       <td className="weather__rainfall">
@@ -65,7 +61,7 @@ function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
         </div>
         <select
           disabled={!isEdit}
-          className={isEdit ? 'select--edit' : ''}
+          className={isEdit ? "select--edit" : ""}
           value={inputRainfall}
           name="rainfall"
           id="rainfall"
@@ -79,7 +75,7 @@ function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
           <option value="Clouds">Облачно</option>
           <option value="Thunderstorm">Гроза</option>
           <option value="Rain">Дождь</option>
-          <option value="Clear">Солнце</option>
+          <option value="Clear">Без осадков</option>
         </select>
       </td>
     </tr>

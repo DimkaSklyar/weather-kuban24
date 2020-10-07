@@ -169,7 +169,7 @@ function App() {
             setInputEdit(!inputEdit);
           }}
         >
-          {!inputEdit ? "Редактировать" : "Закончть редактирование"}
+          {!inputEdit ? "Редактировать" : "Закончить редактирование"}
         </button>
         <button className="btn" onClick={onScreenshot} disabled={inputEdit}>
           {fixScreenshot ? "Сохранение..." : "Сохранить"}
