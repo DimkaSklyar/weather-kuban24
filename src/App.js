@@ -23,6 +23,7 @@ function App() {
   const [inputEdit, setInputEdit] = useState(false);
   const [fixScreenshot, setFixScreenshot] = useState(false);
   const [listCity, setListCity] = useState(DB[0].city);
+  const [isLoading, setIsLoading] = useState(false);
 
   const selectRainfall = (rainfall) => {
     let selectInput = "";
@@ -52,19 +53,35 @@ function App() {
   };
 
   const getWeather = () => {
-    const getCitys = DB[0].city.map((city) => axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=current,minutely,hourly,alertslang=ru&units=metric&appid=a2cd1d02acda23219565accafe27132b`));
+    setIsLoading(true);
+    const getCitys = DB[0].city.map((city) =>
+      axios.get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=current,minutely,hourly,alertslang=ru&units=metric&appid=a2cd1d02acda23219565accafe27132b`
+      )
+    );
     let newList = [];
-    Promise.all(getCitys).then(response => {
-      response.forEach(res => {
-        newList.push(res.data)
+    Promise.all(getCitys)
+      .then((response) => {
+        response.forEach((res) => {
+          newList.push(res.data);
+        });
       })
-    }).then(r =>
-      newList = DB[0].city.map((city, index) => {
-        city.id = (newList[index].lat + newList[index].lon).toFixed(2);
-        city.temp = newList[index].daily[1].temp.max.toFixed() > 0 ? `+${newList[index].daily[1].temp.max.toFixed()}` : `-${newList[index].daily[1].temp.max.toFixed()}`;
-        city.rainfall = newList[index].daily[1].weather[0].main;
-        return city;
-      })).then(r => setListCity(newList))
+      .then(
+        (r) =>
+          (newList = DB[0].city.map((city, index) => {
+            city.id = (newList[index].lat + newList[index].lon).toFixed(2);
+            city.temp =
+              newList[index].daily[1].temp.max.toFixed() > 0
+                ? `+${newList[index].daily[1].temp.max.toFixed()}`
+                : `-${newList[index].daily[1].temp.max.toFixed()}`;
+            city.rainfall = newList[index].daily[1].weather[0].main;
+            return city;
+          }))
+      )
+      .then((r) => {
+        setListCity(newList);
+        setIsLoading(false);
+      });
   };
 
   const date = new Date();
@@ -107,7 +124,7 @@ function App() {
             <input
               type="text"
               disabled={!inputEdit}
-              className={`date ${!!inputEdit ? 'date--edit' : ''}`}
+              className={`date ${!!inputEdit ? "date--edit" : ""}`}
               value={inputDate}
               onChange={(e) => setInputDate(e.target.value)}
             />
@@ -158,7 +175,9 @@ function App() {
           {fixScreenshot ? "Сохранение..." : "Сохранить"}
         </button>
         <button className="btn" onClick={() => getWeather()}>
-          Автоматическое заполение на {formatDate(date)}
+          {!isLoading
+            ? `Автоматическое заполение на ${formatDate(date)}`
+            : "Загрузка данных..."}
         </button>
       </div>
     </div>
