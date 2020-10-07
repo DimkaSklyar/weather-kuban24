@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import download from "downloadjs";
 import axios from "axios";
@@ -24,6 +24,8 @@ function App() {
   const [fixScreenshot, setFixScreenshot] = useState(false);
   const [listCity, setListCity] = useState(DB[0].city);
   const [isLoading, setIsLoading] = useState(false);
+
+  const savedRefImg = useRef();
 
   const selectRainfall = (rainfall) => {
     let selectInput = "";
@@ -104,10 +106,10 @@ function App() {
   const onScreenshot = () => {
     setFixScreenshot(true);
     setTimeout(() => {
-      html2canvas(document.querySelector("#capture"), {
+      html2canvas(savedRefImg.current, {
         scrollY: -window.pageYOffset,
         x: 0,
-        windowWidth: document.querySelector("#capture").scrollWidth,
+        windowWidth: savedRefImg.current.scrollWidth,
       }).then((canvas) => {
         download(canvas.toDataURL());
       });
@@ -118,7 +120,7 @@ function App() {
   return (
     <div>
       <div className="wrapper">
-        <div className="container" id="capture">
+        <div ref={savedRefImg} className="container">
           <h1>
             Погода на&nbsp;
             <input
