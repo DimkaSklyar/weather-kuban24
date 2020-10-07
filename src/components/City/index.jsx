@@ -5,7 +5,6 @@ import cloudyPng from "../../assets/img/cloudy.png";
 import stormPng from "../../assets/img/storm.png";
 import rainPng from "../../assets/img/rain.png";
 import sunPng from "../../assets/img/sun.png";
-import classNames from "classnames";
 
 function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
   const [inputTemperature, setInputTemperature] = useState(temp);
@@ -46,9 +45,7 @@ function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
         <div className="input-wrap">
           <input
             disabled={!isEdit}
-            className={classNames({
-              "input--edit": isEdit,
-            })}
+            className={isEdit ? 'input--edit' : ''}
             onChange={(e) => {
               setInputTemperature(e.target.value);
             }}
@@ -56,9 +53,7 @@ function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
             type="text"
           />
           <span
-            className={classNames({
-              "fix--screenshot": fixScreen,
-            })}
+            className={fixScreen ? 'fix--screenshot' : ''}
           >
             °C
           </span>
@@ -66,13 +61,11 @@ function City({ name, rainfall, temp, isEdit, fixScreen, selectImage }) {
       </td>
       <td className="weather__rainfall">
         <div className="img-wrap">
-          <img src={selectImg} alt="Снег" />
+          <img src={selectImg} alt="" />
         </div>
         <select
           disabled={!isEdit}
-          className={classNames({
-            "select--edit": isEdit,
-          })}
+          className={isEdit ? 'select--edit' : ''}
           value={inputRainfall}
           name="rainfall"
           id="rainfall"

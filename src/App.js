@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import download from "downloadjs";
-import classNames from "classnames";
 import axios from "axios";
 
 import City from "./components/City";
@@ -108,9 +107,7 @@ function App() {
             <input
               type="text"
               disabled={!inputEdit}
-              className={classNames("date", {
-                "date--edit": inputEdit,
-              })}
+              className={`date ${!!inputEdit ? 'date--edit' : ''}`}
               value={inputDate}
               onChange={(e) => setInputDate(e.target.value)}
             />
